@@ -1,0 +1,470 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENAI - Educação Profissional</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #003b71;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            max-width: 850px;
+            margin: auto;
+            font-size: 17px;
+        }
+
+        nav {
+            background-color: #002b52;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ffcc00;
+            color: #003b71;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        .destaque-principal {
+            background: linear-gradient(135deg, #003b71, #0878bd);
+            color: white;
+            text-align: center;
+            padding: 55px 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px #00000015;
+        }
+
+        .destaque-principal h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .destaque-principal p {
+            margin-bottom: 25px;
+        }
+
+        .botao-download,
+        .botao-enviar {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #003b71;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .botao-download:hover,
+        .botao-enviar:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+        }
+
+        .imagem-principal {
+            display: block;
+            width: 100%;
+            max-width: 700px;
+            max-height: 380px;
+            object-fit: cover;
+            margin: 30px auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px #00000020;
+        }
+
+        h2, h3 {
+            color: #003b71;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .video-container video {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px #00000020;
+        }
+
+        .caixa-lista {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px #00000010;
+            border-left: 5px solid #ffcc00;
+        }
+
+        .caixa-lista h3 {
+            margin-bottom: 12px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .tabela-wrapper {
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+
+        .tabela-cursos {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tabela-cursos th {
+            background-color: #003b71;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .tabela-cursos td {
+            padding: 14px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tabela-cursos tr:nth-child(even) {
+            background-color: #eaf2f8;
+        }
+
+        .tabela-cursos tr:hover {
+            background-color: #fff4bf;
+        }
+
+        .formulario-contato {
+            background-color: white;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000012;
+        }
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        .campo label {
+            display: block;
+            font-weight: bold;
+            color: #003b71;
+            margin-bottom: 7px;
+        }
+
+        .campo input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .campo input:focus {
+            border-color: #0878bd;
+            box-shadow: 0 0 5px #0878bd40;
+        }
+
+        .botao-enviar {
+            width: 100%;
+            font-size: 16px;
+        }
+
+        footer {
+            background-color: #002b52;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            .destaque-principal h2 {
+                font-size: 25px;
+            }
+
+            .video-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                position: static;
+            }
+
+            nav a {
+                padding: 8px 12px;
+            }
+
+            .formulario-contato {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="sobre">
+        <h1>SENAI</h1>
+        <p>
+            O Serviço Nacional de Aprendizagem Industrial é uma instituição
+            criada em 1942, dedicada à educação profissional, à inovação
+            tecnológica e ao desenvolvimento da indústria brasileira.
+        </p>
+    </header>
+
+    <nav class="menu">
+        <a href="#sobre">Sobre</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#psicologia">Psicologia das Cores</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <main>
+
+        <section>
+            <img
+                src="Gemini_Generated_Image_dbuhicdbuhicdbuh (1).jpg"
+                alt="Imagem ilustrativa do SENAI"
+                class="imagem-principal"
+            >
+        </section>
+
+        <section class="destaque-principal">
+            <h2>Construa seu futuro profissional no SENAI</h2>
+            <p>
+                Aprenda novas habilidades, desenvolva seu talento e prepare-se
+                para as oportunidades do mercado de trabalho.
+            </p>
+
+            <a
+                href="guia-de-cursos.pdf"
+                download
+                class="botao-download"
+            >
+                Baixar Guia de Cursos
+            </a>
+        </section>
+
+        <section id="cursos">
+            <h2 class="titulo-secao">Conheça nossa estrutura</h2>
+
+            <div class="video-container">
+
+                <video controls
+                    poster="https://images.unsplash.com/photo-1581192335397-9583fe92d232?w=800">
+                    <source
+                        src="https://www.w3schools.com/html/mov_bbb.mp4"
+                        type="video/mp4">
+                    Seu navegador não suporta vídeos.
+                </video>
+
+                <div class="conteudo-lista">
+
+                    <div class="caixa-lista">
+                        <h3>Por que escolher o SENAI?</h3>
+                        <ul>
+                            <li>Laboratórios modernos</li>
+                            <li>Professores qualificados</li>
+                            <li>Formação profissional</li>
+                            <li>Certificação conforme o curso</li>
+                            <li>Preparação para o mercado de trabalho</li>
+                        </ul>
+                    </div>
+
+                    <div class="caixa-lista">
+                        <h3>Passo a passo para se matricular</h3>
+                        <ol>
+                            <li>Escolha o curso desejado.</li>
+                            <li>Preencha o formulário de inscrição.</li>
+                            <li>Aguarde o contato da instituição.</li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-cursos">
+                    <thead>
+                        <tr>
+                            <th>Curso</th>
+                            <th>Área</th>
+                            <th>Modalidade</th>
+                            <th>Carga horária</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Mecânico de Usinagem</td>
+                            <td>Metalmecânica</td>
+                            <td>Presencial</td>
+                            <td>280 h</td>
+                        </tr>
+
+                        <tr>
+                            <td>Desenvolvimento de Sistemas</td>
+                            <td>Tecnologia da Informação</td>
+                            <td>EAD</td>
+                            <td>200 h</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="psicologia">
+            <div class="caixa-lista">
+                <h2>Psicologia das Cores</h2>
+                <p>
+                    <strong>Azul:</strong> transmite confiança,
+                    profissionalismo e segurança.
+                </p>
+                <p>
+                    <strong>Amarelo:</strong> representa energia,
+                    criatividade e atenção.
+                </p>
+                <p>
+                    <strong>Branco:</strong> transmite organização,
+                    simplicidade e clareza.
+                </p>
+            </div>
+        </section>
+
+        <section id="contato">
+            <h2 class="titulo-secao">Entre em contato</h2>
+
+            <form class="formulario-contato" action="#" method="post">
+
+                <div class="campo">
+                    <label for="nome">Nome completo:</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Digite seu nome"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="telefone">Telefone:</label>
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="telefone"
+                        placeholder="Digite seu telefone"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="botao-enviar">
+                    Enviar
+                </button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p><strong>SENAI — Educação Profissional</strong></p>
+        <p>Preparando profissionais para o futuro.</p>
+    </footer>
+
+</body>
+</html>
+```
