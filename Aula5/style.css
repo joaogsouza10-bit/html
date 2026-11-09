@@ -1,0 +1,44 @@
+*{/*seletor universal*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.destaque{/*seletor por classe*/
+    color: blue;
+    font-weight: bold;
+}
+#titulo-principal {/*seletor por id*/
+    color: red;
+    text-align: center;
+}
+p{/*seletor por tag*/
+    font-size: 18px;
+    line-height: 1.5;
+    color: blueviolet;
+}
+h1, h2, h3{
+    font-family: Arial, sans-serif;
+    color: rgb(113, 1, 154);
+}
+h4{
+    font-size: 20px;
+    line-height: 1.5;
+    color: darkblue;
+}
+img{
+    width: 301px;
+    height: auto;
+    border: 2px solid black;
+    display: block;
+    margin: auto;
+}
+ul{
+    list-style-type: square;
+}
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: #f4f4f4;
+    padding: 10px;
+
+}
